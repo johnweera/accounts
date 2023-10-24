@@ -1,0 +1,14 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+    <h3>Profile</h3>
+    {% if user.is_authenticated %}
+        <p>Hi : {{user}}</p>
+
+        | <a href="{% url 'accounts:password_change' %}">Change Password</a>
+        | <a href="{% url 'accounts:logout' %}">Logout</a>        
+    {% else %}
+        <p>Hi : {{user}}</p>
+        | <a href="{% url 'accounts:login' %}">Login</a>
+    {% endif %}
+{% endblock %}
